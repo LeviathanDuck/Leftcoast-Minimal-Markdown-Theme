@@ -1,0 +1,500 @@
+body {
+  --h1-size: var(--font-text-size);
+  --h2-size: var(--font-text-size);
+  --h3-size: var(--font-text-size);
+  --h4-size: var(--font-text-size);
+  --h5-size: var(--font-text-size);
+  --h6-size: var(--font-text-size);
+  --vault-name-font-weight: 600;
+
+  --file-line-width: min(800px, 98vw);
+  --file-margins: 64px 32px 32px 32px;
+
+  --h1-color: var(--text-normal);
+  --link-color: var(--text-normal);
+  --text-faint: var(--text-muted);
+  --callout-title-color: var(--text-normal);
+  --link-unresolved-color: var(--text-normal);
+  --link-external-color: var(--text-normal);
+  --link-external-color-hover: var(--color-accent);
+  --checkbox-color: var(--text-muted);
+  --checkbox-border-color: var(--text-muted);
+  --list-marker-color: var(--text-muted);
+  --tab-text-color: var(--text-normal);
+  --tab-text-color-focused: var(--text-normal);
+  --tab-text-color-focused-active: var(--text-normal);
+  --tab-text-color-active: var(--text-normal);
+  --nav-item-color: var(--text-normal);
+  --nav-item-background-active: transparent;
+  --nav-item-background-hover: transparent;
+  --link-unresolved-opacity: 1;
+  --list-marker-color: var(--text-normal);
+  --titlebar-background-focused: var(--background-secondary);
+}
+
+.theme-light,
+.theme-dark {
+  --font-text: var(--font-text-override), var(--font-interface);
+  --line-height-normal: 1.7;
+  --link-decoration: underline;
+  --link-unresolved-decoration-color: var(--text-muted);
+  --link-external-decoration-color: var(--text-muted);
+  --checklist-done-decoration: line-through;
+  --checkbox-color: transparent;
+  --checkbox-color-hover: transparent;
+  --checkbox-marker-color: transparent;
+}
+
+.theme-light {
+  --background-primary: #F7F7F7;
+  --background-secondary: #FCFCFC;
+  --text-normal: #1A1A1A;
+  --text-muted: #B5B3B1;
+  --text-highlight-bg: #FCEA95;
+  --text-highlight-border: 4px solid #FFD700;
+  --text-highlight-color: var(--text-normal);
+}
+
+.theme-dark {
+  --background-primary: #1B1B1B;
+  --background-secondary: #141414;
+  --text-normal: #CCC;
+  --text-muted: #707070;
+  --text-highlight-bg: #494113;
+  --text-highlight-border: 4px solid #D4B000;
+  --text-highlight-color: #DCCF99;
+}
+
+.inline-title {
+  margin-bottom: 20px;
+}
+
+.markdown-source-view.mod-cm6 .cm-content {
+  caret-color: var(--color-accent);
+}
+
+.cm-s-obsidian span.cm-hmd-internal-link:hover,
+.markdown-source-view.mod-cm6 .is-unresolved .cm-underline,
+.markdown-source-view.mod-cm6 .cm-underline,
+.cm-s-obsidian span.cm-url,
+.cm-underline {
+  text-decoration-style: dotted;
+  text-decoration-color: var(--text-muted);
+}
+
+.cm-highlight {
+  border-bottom: var(--text-highlight-border);
+}
+.cm-s-obsidian span.cm-formatting-highlight, .cm-s-obsidian span.cm-highlight {
+  color: var(--text-highlight-color);
+}
+
+.nav-file-title.is-active {
+  border-left: 5px solid var(--color-accent);
+  border-radius: 0;
+  margin-left: -10px;
+  padding-left: calc(var(--size-4-2) + 5px);
+}
+
+input[type=checkbox] {
+  border: 0;
+}
+input[type=checkbox]:checked::after,
+input[type=checkbox]:not(:checked)::after {
+  -webkit-mask-image: none;
+  font-size: var(--font-text-size);
+  width: 40px;
+  font-family: var(--font-text);
+  white-space: nowrap;
+  top: -4px;
+  left: -8px;
+  position: absolute;
+  display: block;
+}
+input[type=checkbox]:not(:checked)::after {
+  content: "[  ]";
+  color: var(--text-normal);
+}
+input[type=checkbox]:checked::after {
+  content: "[x]";
+  color: var(--text-muted);
+}
+.markdown-source-view.mod-cm6 .task-list-item-checkbox {
+  margin-left: 10px;
+}
+
+.list-bullet {
+  color: var(--list-marker-color);
+}
+.list-bullet::after {
+  display: none;
+}
+.markdown-rendered ul.has-list-bullet {
+  list-style-type: '- ';
+}
+.markdown-rendered ul.has-list-bullet > li::marker {
+  color: var(--list-marker-color);
+}
+.canvas-node-container input[type=checkbox]:checked::after,
+.canvas-node-container input[type=checkbox]:not(:checked)::after {
+  left: -12px;
+}
+
+
+.nav-buttons-container {
+  justify-content: flex-start;
+  margin-left: 8px;
+}
+
+.markdown-source-view.mod-cm6 .cm-highlight .is-unresolved {
+  color: var(--text-normal);
+}
+
+.theme-dark .cm-s-obsidian .cm-hmd-frontmatter.cm-atom {
+  color: var(--color-accent);
+}
+
+.cm-line {
+  letter-spacing: 0.02em;
+}
+
+.ͼ1 .cm-cursor {
+  /* suppress the synthetic caret while a selection is active */
+  display: none !important;
+}
+
+
+/* ------------------------------------------------------------ */
+/* Leftcoast Minimal — visual layer                              */
+/* ------------------------------------------------------------ */
+
+/* Reading surface tuned for long-form markdown work.
+   White H1 with a thin underline, blue H2, heading-3 neutral, warm
+   amber emphasis on bold and italic, amber-tinted inline code on a
+   slightly lifted background, subtle active-line wash, a thicker
+   blue caret in the editor, and a brief flash on jump-to-location.
+   Lists use a colored-sweep for ordered markers and a single accent
+   hue for unordered bullets. Tables get faint dividers and
+   alternating rows. Dataview inline fields render as pill tokens. */
+
+/* ---- Typography scales and family stacks (both modes) ---- */
+body.theme-light,
+body.theme-dark {
+  --font-text: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-editor: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-monospace: 'JetBrains Mono', 'Fira Code', Menlo, SFMono-Regular, Consolas, 'Roboto Mono', monospace;
+
+  --h1-size: 1.7rem;
+  --h2-size: 1.5rem;
+  --h3-size: 1.2rem;
+  --h4-size: 1.1rem;
+  --h5-size: 1rem;
+  --h6-size: 0.9rem;
+
+  --line-height: 1.5;
+  --line-width: 40rem;
+  --max-width: 90%;
+
+  --list-marker-color: #2EA9DF;
+
+  /* strip default underlines; emphasis is carried by color */
+  --link-decoration: none;
+  --link-decoration-hover: none;
+  --link-external-decoration: none;
+  --link-external-decoration-hover: none;
+  --tag-decoration: none;
+  --tag-decoration-hover: underline;
+  --tag-padding-x: .5em;
+  --tag-padding-y: .2em;
+  --tag-radius: .5em;
+  --tag-color: var(--color-accent);
+  --bold-weight: 600;
+  --tab-font-weight: 600;
+  --checkbox-radius: 4px;
+  --embed-border-left: 6px double var(--interactive-accent);
+}
+
+/* ---- Palette (dark mode) ---- */
+body.theme-dark {
+  --text-normal: #E5E5E7;
+  --text-muted: #8E8E93;
+  --text-faint: #636366;
+
+  --text-accent: #2196F3;
+  --text-accent-hover: #64B5F6;
+  --link-color: #2196F3;
+  --link-color-hover: #64B5F6;
+
+  --h1-color: #FFFFFF;
+  --h2-color: #2196F3;
+  --h3-color: #FFFFFF;
+  --h4-color: #FFFFFF;
+  --h5-color: #FFFFFF;
+  --h6-color: #FFFFFF;
+
+  --blockquote-color: #C7C7CC;
+
+  --bold-color: #D79921;
+  --italic-color: #D79921;
+
+  --code-normal: #7FB3E6;
+  --code-background: #2A2A2E;
+}
+
+/* ---- Heading color rules ---- */
+body.theme-dark .markdown-preview-view h1,
+body.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  color: var(--h1-color);
+  border-bottom: 2px solid var(--h1-color);
+  padding-bottom: 0.15em;
+}
+body.theme-dark .markdown-preview-view h2,
+body.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  color: var(--h2-color);
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding-bottom: 0.1em;
+}
+body.theme-dark .markdown-preview-view h3,
+body.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  color: var(--h3-color);
+}
+body.theme-dark .markdown-preview-view h4,
+body.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-4 {
+  color: var(--h4-color);
+}
+body.theme-dark .markdown-preview-view h5,
+body.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-5 {
+  color: var(--h5-color);
+}
+body.theme-dark .markdown-preview-view h6,
+body.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-6 {
+  color: var(--h6-color);
+}
+
+/* ---- Internal and external links (accent blue) ---- */
+body.theme-dark a.internal-link,
+body.theme-dark a.external-link,
+body.theme-dark .cm-s-obsidian span.cm-hmd-internal-link,
+body.theme-dark .cm-s-obsidian span.cm-url {
+  color: #2196F3;
+}
+body.theme-dark a.internal-link:hover,
+body.theme-dark a.external-link:hover,
+body.theme-dark .cm-s-obsidian span.cm-hmd-internal-link:hover,
+body.theme-dark .cm-s-obsidian span.cm-url:hover {
+  color: #64B5F6;
+}
+
+/* ---- Emphasis: bold and italic in warm amber ---- */
+body.theme-dark strong,
+body.theme-dark .cm-strong,
+body.theme-dark .markdown-preview-view b {
+  color: #D79921;
+}
+body.theme-dark em,
+body.theme-dark .cm-em,
+body.theme-dark .markdown-preview-view i {
+  color: #D79921;
+}
+
+/* ---- Inline code: amber text on a lifted surface ---- */
+body.theme-dark :not(pre) > code,
+body.theme-dark .markdown-rendered code:not(pre code),
+body.theme-dark .cm-inline-code,
+body.theme-dark .cm-s-obsidian span.cm-inline-code {
+  color: #7FB3E6;
+  background-color: #2A2A2E;
+  padding: 0.1em 0.25em;
+  border-radius: var(--radius-s);
+}
+
+/* ---- Gentle wash on the line the caret is on ---- */
+body.theme-dark .cm-active:not(.HyperMD-header):not(.HyperMD-codeblock) {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+body.theme-light .cm-active:not(.HyperMD-header):not(.HyperMD-codeblock) {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* ---- Task checkboxes: flat square, X when completed (document scope only) ---- */
+body.theme-dark .markdown-preview-view input[type=checkbox],
+body.theme-light .markdown-preview-view input[type=checkbox],
+body.theme-dark .markdown-source-view input[type=checkbox],
+body.theme-light .markdown-source-view input[type=checkbox] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #FFFFFF;
+  border-radius: 4px;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+  vertical-align: middle;
+}
+body.theme-dark .markdown-preview-view input[type=checkbox]:checked,
+body.theme-light .markdown-preview-view input[type=checkbox]:checked,
+body.theme-dark .markdown-source-view input[type=checkbox]:checked,
+body.theme-light .markdown-source-view input[type=checkbox]:checked {
+  background-color: #81C784;
+  border-color: #81C784;
+}
+body.theme-dark .markdown-preview-view input[type=checkbox]:checked::after,
+body.theme-light .markdown-preview-view input[type=checkbox]:checked::after,
+body.theme-dark .markdown-source-view input[type=checkbox]:checked::after,
+body.theme-light .markdown-source-view input[type=checkbox]:checked::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: block;
+  color: transparent;
+}
+body.theme-dark .markdown-preview-view input[type=checkbox]:not(:checked)::after,
+body.theme-light .markdown-preview-view input[type=checkbox]:not(:checked)::after,
+body.theme-dark .markdown-source-view input[type=checkbox]:not(:checked)::after,
+body.theme-light .markdown-source-view input[type=checkbox]:not(:checked)::after {
+  display: none;
+}
+
+/* ---- Completed task text: muted and struck through ---- */
+body.theme-dark .markdown-preview-view ul > li.task-list-item.is-checked,
+body.theme-light .markdown-preview-view ul > li.task-list-item.is-checked {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+body.theme-dark .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="x"],
+body.theme-dark .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="X"],
+body.theme-light .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="x"],
+body.theme-light .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="X"] {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+/* ---- Ordered list markers: swept hue per depth ---- */
+body.theme-dark .markdown-preview-view ol > li:nth-child(1)::marker,
+body.theme-light .markdown-preview-view ol > li:nth-child(1)::marker {
+  color: #FB7185;
+}
+body.theme-dark .markdown-preview-view ol > li:nth-child(2)::marker,
+body.theme-light .markdown-preview-view ol > li:nth-child(2)::marker {
+  color: #FB923C;
+}
+body.theme-dark .markdown-preview-view ol > li:nth-child(3)::marker,
+body.theme-light .markdown-preview-view ol > li:nth-child(3)::marker {
+  color: #FBBF24;
+}
+body.theme-dark .markdown-preview-view ol > li:nth-child(4)::marker,
+body.theme-light .markdown-preview-view ol > li:nth-child(4)::marker {
+  color: #34D399;
+}
+body.theme-dark .markdown-preview-view ol > li:nth-child(5)::marker,
+body.theme-light .markdown-preview-view ol > li:nth-child(5)::marker {
+  color: #38BDF8;
+}
+body.theme-dark .markdown-preview-view ol > li:nth-child(6)::marker,
+body.theme-light .markdown-preview-view ol > li:nth-child(6)::marker {
+  color: #818CF8;
+}
+body.theme-dark .markdown-preview-view ol > li:nth-child(7)::marker,
+body.theme-light .markdown-preview-view ol > li:nth-child(7)::marker {
+  color: #A78BFA;
+}
+body.theme-dark .markdown-preview-view ol > li:nth-child(8)::marker,
+body.theme-light .markdown-preview-view ol > li:nth-child(8)::marker {
+  color: #E879F9;
+}
+body.theme-dark .markdown-preview-view ol > li:nth-child(n+9)::marker,
+body.theme-light .markdown-preview-view ol > li:nth-child(n+9)::marker {
+  color: var(--list-marker-color);
+}
+
+/* ---- Bulleted list markers: single accent blue ---- */
+.list-bullet,
+.markdown-preview-view ul li::marker {
+  color: var(--list-marker-color);
+}
+.markdown-source-view.mod-cm6 .list-bullet::after,
+.markdown-source-view.mod-cm6 .cm-list-1.cm-formatting-list {
+  color: var(--list-marker-color);
+}
+
+/* ---- Typographic niceties applied to both modes ---- */
+.markdown-source-view.mod-cm6.is-live-preview .cm-hashtag.cm-meta,
+.markdown-source-view.mod-cm5 .cm-hashtag.cm-meta {
+  font-family: var(--font-text);
+}
+.cm-formatting-strong,
+.cm-formatting-em,
+.cm-formatting.cm-formatting-quote {
+  letter-spacing: -0.02em;
+}
+.markdown-preview-view blockquote,
+span.cm-quote.cm-quote-1 {
+  font-style: italic;
+}
+.cm-s-obsidian .HyperMD-codeblock {
+  line-height: 1.4em;
+}
+
+/* ---- Tables: faint dividers with alternating row tint ---- */
+.markdown-rendered table {
+  border: 1px solid var(--background-modifier-border);
+  border-collapse: collapse;
+}
+.markdown-rendered thead {
+  border-bottom: 2px solid var(--background-modifier-border);
+}
+.markdown-rendered th {
+  font-weight: 600;
+  border: 1px solid var(--background-modifier-border);
+}
+.markdown-rendered td {
+  border-left: 1px solid var(--background-modifier-border);
+  border-right: 1px solid var(--background-modifier-border);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+body.theme-dark .markdown-rendered tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+body.theme-light .markdown-rendered tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* ---- Dataview inline fields rendered as pill tokens ---- */
+.dataview.inline-field-key {
+  border-top-left-radius: var(--radius-s);
+  border-bottom-left-radius: var(--radius-s);
+  padding-left: 6px;
+  padding-right: 4px;
+  font-family: var(--font-monospace);
+  font-size: 0.85em;
+  background-color: rgba(33, 150, 243, 0.15);
+  color: var(--text-muted);
+}
+.dataview.inline-field-value {
+  border-top-right-radius: var(--radius-s);
+  border-bottom-right-radius: var(--radius-s);
+  padding-right: 6px;
+  padding-left: 4px;
+  font-family: var(--font-monospace);
+  font-size: 0.85em;
+  background-color: rgba(76, 175, 80, 0.15);
+  color: var(--text-muted);
+}
+
+/* ---- Brief flash when a jump lands the cursor ---- */
+@keyframes leftcoast-flash {
+  0% { background-color: rgba(33, 150, 243, 0.4); }
+  100% { background-color: transparent; }
+}
+.is-flashing {
+  animation: leftcoast-flash 0.6s ease-out;
+}
