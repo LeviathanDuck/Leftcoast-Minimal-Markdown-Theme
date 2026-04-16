@@ -1,0 +1,214 @@
+/**
+ * iA Writer template: Leftcoast Minimal
+ *
+ * Overrides on top of the bundled core.css. Core owns the
+ * responsive font cascade, layout widths, and base typography;
+ * this file only carries palette, emphasis, list accents, and
+ * night-mode adjustments.
+ */
+
+:root {
+    --lc-accent-blue: #2196F3;
+    --lc-accent-blue-hover: #64B5F6;
+    --lc-bullet-blue: #2EA9DF;
+    --lc-inline-code: #7FB3E6;
+    --lc-inline-code-bg: rgba(127, 179, 230, 0.12);
+    --lc-amber: #D79921;
+    --lc-highlight-bg-light: #FCEA95;
+    --lc-highlight-bg-dark: #494113;
+    --lc-highlight-color-dark: #DCCF99;
+
+    --lc-ord-1: #FB7185;
+    --lc-ord-2: #FB923C;
+    --lc-ord-3: #FBBF24;
+    --lc-ord-4: #34D399;
+    --lc-ord-5: #38BDF8;
+    --lc-ord-6: #818CF8;
+    --lc-ord-7: #A78BFA;
+    --lc-ord-8: #E879F9;
+}
+
+/* ---- Family stack (system sans) ---- */
+html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+/* ---- Headings: H2 carries accent blue; H1 gets a thin underline ---- */
+h1 {
+    border-bottom: 1px solid currentColor;
+    padding-bottom: calc((6 / 23) * 1em);
+}
+
+h2 {
+    color: var(--lc-accent-blue);
+}
+
+/* ---- Emphasis: bold and italic in warm amber ---- */
+strong,
+b {
+    color: var(--lc-amber);
+}
+
+em,
+i {
+    color: var(--lc-amber);
+    font-style: italic;
+}
+
+/* Avoid amber inside headings, where color is already the feature */
+h1 strong, h1 em, h1 b, h1 i,
+h2 strong, h2 em, h2 b, h2 i,
+h3 strong, h3 em, h3 b, h3 i,
+h4 strong, h4 em, h4 b, h4 i,
+h5 strong, h5 em, h5 b, h5 i,
+h6 strong, h6 em, h6 b, h6 i {
+    color: inherit;
+}
+
+/* ---- Links ---- */
+a {
+    color: var(--lc-accent-blue);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--lc-accent-blue-hover);
+}
+
+/* ---- Unordered list bullets: single accent blue ---- */
+ul > li:before {
+    color: var(--lc-bullet-blue);
+}
+
+/* ---- Ordered list markers: swept hue per depth ---- */
+ol > li::marker                                  { color: var(--lc-ord-1); font-weight: 700; }
+ol ol > li::marker                               { color: var(--lc-ord-2); }
+ol ol ol > li::marker                            { color: var(--lc-ord-3); }
+ol ol ol ol > li::marker                         { color: var(--lc-ord-4); }
+ol ol ol ol ol > li::marker                      { color: var(--lc-ord-5); }
+ol ol ol ol ol ol > li::marker                   { color: var(--lc-ord-6); }
+ol ol ol ol ol ol ol > li::marker                { color: var(--lc-ord-7); }
+ol ol ol ol ol ol ol ol > li::marker             { color: var(--lc-ord-8); }
+
+/* ---- Inline code: amber-tinted blue on lifted background ---- */
+code,
+samp,
+kbd {
+    color: var(--lc-inline-code);
+    background-color: var(--lc-inline-code-bg);
+}
+
+pre code,
+pre samp,
+pre kbd {
+    color: inherit;
+    background-color: transparent;
+}
+
+/* ---- Highlight ---- */
+mark {
+    background-color: var(--lc-highlight-bg-light);
+    padding: 0 0.15em;
+}
+
+/* ---- Tables: keep core's layout; add alternating rows ---- */
+tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* ---- Title page ---- */
+body.title {
+    text-align: center;
+}
+
+body.title h1 {
+    border: none;
+    margin-top: calc((124 / 23) * 1em);
+    letter-spacing: 0.5px;
+}
+
+body.title h2 {
+    color: inherit;
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.7;
+    margin-top: 0;
+}
+
+/* ---- Running header and footer ---- */
+body.header,
+body.footer {
+    font-size: calc((13 / 19) * 1em);
+    opacity: 0.6;
+    text-align: center;
+}
+
+body.header p,
+body.footer p {
+    margin: 0;
+}
+
+/* ---- Night mode ---- */
+.night-mode h1,
+.night-mode h3,
+.night-mode h4,
+.night-mode h5,
+.night-mode h6 {
+    color: #FFFFFF;
+}
+
+.night-mode h2 {
+    color: var(--lc-accent-blue);
+}
+
+.night-mode strong,
+.night-mode b,
+.night-mode em,
+.night-mode i {
+    color: var(--lc-amber);
+}
+
+.night-mode code,
+.night-mode samp,
+.night-mode kbd {
+    color: var(--lc-inline-code);
+    background-color: rgba(127, 179, 230, 0.08);
+}
+
+.night-mode mark {
+    background-color: var(--lc-highlight-bg-dark);
+    color: var(--lc-highlight-color-dark);
+}
+
+.night-mode tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.night-mode a {
+    color: var(--lc-accent-blue);
+}
+
+.night-mode a:hover {
+    color: var(--lc-accent-blue-hover);
+}
+
+/* ---- Print adjustments ---- */
+@media print {
+    h2,
+    strong,
+    b,
+    em,
+    i,
+    a {
+        color: inherit;
+    }
+
+    code,
+    samp,
+    kbd {
+        color: inherit;
+        background-color: transparent;
+        border: 1px solid #888;
+        padding: 0 0.2em;
+    }
+}
