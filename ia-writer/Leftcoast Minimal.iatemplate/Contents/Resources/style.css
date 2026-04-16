@@ -18,14 +18,7 @@
     --lc-highlight-bg-dark: #494113;
     --lc-highlight-color-dark: #DCCF99;
 
-    --lc-ord-1: #FB7185;
-    --lc-ord-2: #FB923C;
-    --lc-ord-3: #FBBF24;
-    --lc-ord-4: #34D399;
-    --lc-ord-5: #38BDF8;
-    --lc-ord-6: #818CF8;
-    --lc-ord-7: #A78BFA;
-    --lc-ord-8: #E879F9;
+    --lc-ord-blue: #2EA9DF;
 }
 
 /* ---- Family stack (system sans) ---- */
@@ -33,7 +26,11 @@ html {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
-/* ---- Headings: H2 carries accent blue; H1 gets a thin underline ---- */
+/* ---- Headings: left-aligned; H2 carries accent blue; H1 gets a thin underline ---- */
+h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+}
+
 h1 {
     border-bottom: 1px solid currentColor;
     padding-bottom: calc((6 / 23) * 1em);
@@ -80,15 +77,11 @@ ul > li:before {
     color: var(--lc-bullet-blue);
 }
 
-/* ---- Ordered list markers: swept hue per depth ---- */
-ol > li::marker                                  { color: var(--lc-ord-1); font-weight: 700; }
-ol ol > li::marker                               { color: var(--lc-ord-2); }
-ol ol ol > li::marker                            { color: var(--lc-ord-3); }
-ol ol ol ol > li::marker                         { color: var(--lc-ord-4); }
-ol ol ol ol ol > li::marker                      { color: var(--lc-ord-5); }
-ol ol ol ol ol ol > li::marker                   { color: var(--lc-ord-6); }
-ol ol ol ol ol ol ol > li::marker                { color: var(--lc-ord-7); }
-ol ol ol ol ol ol ol ol > li::marker             { color: var(--lc-ord-8); }
+/* ---- Ordered list markers: uniform blue ---- */
+ol > li::marker {
+    color: var(--lc-ord-blue);
+    font-weight: 700;
+}
 
 /* ---- Inline code: amber-tinted blue on lifted background ---- */
 code,
