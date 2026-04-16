@@ -28,7 +28,9 @@ html {
 
 /* ---- Headings: left-aligned; H2 carries accent blue; H1 gets a thin underline ---- */
 h1, h2, h3, h4, h5, h6 {
-    text-align: left;
+    text-align: left !important;
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
 }
 
 h1 {
@@ -38,6 +40,8 @@ h1 {
 
 h2 {
     color: var(--lc-accent-blue);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: calc((6 / 21) * 1em);
 }
 
 /* ---- Emphasis: bold and italic in warm amber ---- */
@@ -77,8 +81,20 @@ ul > li:before {
     color: var(--lc-bullet-blue);
 }
 
-/* ---- Ordered list markers: uniform blue ---- */
-ol > li::marker {
+/* ---- Ordered list markers: uniform blue via counter ---- */
+ol {
+    list-style: none;
+    counter-reset: lc-ol;
+}
+
+ol > li {
+    counter-increment: lc-ol;
+}
+
+ol > li:before {
+    content: counter(lc-ol) ". ";
+    float: left;
+    margin-left: calc((21 / 19) * -1em);
     color: var(--lc-ord-blue);
     font-weight: 700;
 }
