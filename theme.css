@@ -45,13 +45,28 @@ body {
   --checkbox-marker-color: transparent;
 }
 
+/* iA Writer-style blue text selection in editor and reader only.
+   Override --text-selection within the editor/reader scope so Obsidian's
+   accent color still applies in sidebar, settings, modals, etc. */
+.markdown-source-view {
+  --text-selection: rgba(25, 75, 150, 0.45);
+}
+.markdown-preview-view,
+.markdown-reading-view {
+  --text-selection: rgba(25, 75, 150, 0.45);
+}
+.markdown-preview-view ::selection,
+.markdown-reading-view ::selection {
+  background-color: rgba(25, 75, 150, 0.45);
+}
+
 .theme-light {
   --background-primary: #F7F7F7;
   --background-secondary: #FCFCFC;
   --text-normal: #1A1A1A;
   --text-muted: #B5B3B1;
   --text-highlight-bg: #FCEA95;
-  --text-highlight-border: 4px solid #FFD700;
+  --text-highlight-border: 2px solid #FFD700;
   --text-highlight-color: var(--text-normal);
 }
 
@@ -61,7 +76,7 @@ body {
   --text-normal: #CCC;
   --text-muted: #707070;
   --text-highlight-bg: #494113;
-  --text-highlight-border: 4px solid #D4B000;
+  --text-highlight-border: 2px solid #D4B000;
   --text-highlight-color: #DCCF99;
 }
 
@@ -70,7 +85,7 @@ body {
 }
 
 .markdown-source-view.mod-cm6 .cm-content {
-  caret-color: var(--color-accent);
+  caret-color: auto;
 }
 
 .cm-s-obsidian span.cm-hmd-internal-link:hover,
@@ -87,6 +102,17 @@ body {
 }
 .cm-s-obsidian span.cm-formatting-highlight, .cm-s-obsidian span.cm-highlight {
   color: var(--text-highlight-color);
+}
+
+/* Reading/preview view: ==highlight== renders as <mark>, not .cm-highlight */
+.markdown-preview-view mark,
+.markdown-reading-view mark,
+.markdown-rendered mark {
+  background-color: var(--text-highlight-bg);
+  color: var(--text-highlight-color);
+  border-bottom: var(--text-highlight-border);
+  border-radius: 2px;
+  padding: 0 1px;
 }
 
 .nav-file-title.is-active {
@@ -158,9 +184,27 @@ input[type=checkbox]:checked::after {
   letter-spacing: 0.02em;
 }
 
-.ͼ1 .cm-cursor {
-  /* suppress the synthetic caret while a selection is active */
-  display: none !important;
+/* Let the system cursor and selection render at their OS defaults. */
+
+/* ---- Scrollbar: dark thumb against the track ---- */
+body.theme-dark ::-webkit-scrollbar { width: 8px; }
+body.theme-dark ::-webkit-scrollbar-track { background: transparent; }
+body.theme-dark ::-webkit-scrollbar-thumb {
+  background: #0A0A0A;
+  border-radius: 4px;
+}
+body.theme-dark ::-webkit-scrollbar-thumb:hover {
+  background: #111111;
+}
+
+body.theme-light ::-webkit-scrollbar { width: 8px; }
+body.theme-light ::-webkit-scrollbar-track { background: transparent; }
+body.theme-light ::-webkit-scrollbar-thumb {
+  background: #D0D0D0;
+  border-radius: 4px;
+}
+body.theme-light ::-webkit-scrollbar-thumb:hover {
+  background: #BFBFBF;
 }
 
 
