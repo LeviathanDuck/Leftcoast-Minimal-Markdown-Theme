@@ -1,5 +1,7 @@
 # Leftcoast Minimal
 
+> 🧪 **Public beta.** This theme is in active testing. If you hit something unexpected, please [submit an issue on GitHub](https://github.com/LeviathanDuck/Leftcoast-Minimal-Markdown-Theme/issues) — thanks for helping make it better.
+
 A minimal, markdown-focused Obsidian theme by Leftcoast.
 
 ## Install (manual)
