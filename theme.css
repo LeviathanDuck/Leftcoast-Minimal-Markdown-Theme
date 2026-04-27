@@ -217,9 +217,9 @@ body.theme-light ::-webkit-scrollbar-thumb:hover {
    amber emphasis on bold and italic, amber-tinted inline code on a
    slightly lifted background, subtle active-line wash, a thicker
    blue caret in the editor, and a brief flash on jump-to-location.
-   Lists use a colored-sweep for ordered markers and a single accent
-   hue for unordered bullets. Tables get faint dividers and
-   alternating rows. Dataview inline fields render as pill tokens. */
+   Lists use a single accent hue for unordered bullets. Tables get
+   faint dividers and alternating rows. Dataview inline fields
+   render as pill tokens. */
 
 /* ---- Typography scales and family stacks (both modes) ---- */
 body.theme-light,
@@ -315,18 +315,26 @@ body.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   color: var(--h6-color);
 }
 
-/* ---- Internal and external links (accent blue) ---- */
+/* ---- Internal and external links: bullet-blue text on a lifted pill ---- */
 body.theme-dark a.internal-link,
 body.theme-dark a.external-link,
 body.theme-dark .cm-s-obsidian span.cm-hmd-internal-link,
-body.theme-dark .cm-s-obsidian span.cm-url {
-  color: #2196F3;
+body.theme-dark .cm-s-obsidian span.cm-url,
+body.theme-dark .cm-s-obsidian span.cm-link {
+  color: #2EA9DF;
+  background-color: #2A2A2E;
+  padding: 0.1em 0.25em;
+  border-radius: var(--radius-s);
+  text-decoration: none;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 body.theme-dark a.internal-link:hover,
 body.theme-dark a.external-link:hover,
 body.theme-dark .cm-s-obsidian span.cm-hmd-internal-link:hover,
-body.theme-dark .cm-s-obsidian span.cm-url:hover {
-  color: #64B5F6;
+body.theme-dark .cm-s-obsidian span.cm-url:hover,
+body.theme-dark .cm-s-obsidian span.cm-link:hover {
+  color: #5BC0EB;
 }
 
 /* ---- Emphasis: bold and italic in warm amber ---- */
@@ -420,44 +428,6 @@ body.theme-light .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="X"]
   color: var(--text-muted);
   text-decoration: line-through;
   opacity: 0.7;
-}
-
-/* ---- Ordered list markers: swept hue per depth ---- */
-body.theme-dark .markdown-preview-view ol > li:nth-child(1)::marker,
-body.theme-light .markdown-preview-view ol > li:nth-child(1)::marker {
-  color: #FB7185;
-}
-body.theme-dark .markdown-preview-view ol > li:nth-child(2)::marker,
-body.theme-light .markdown-preview-view ol > li:nth-child(2)::marker {
-  color: #FB923C;
-}
-body.theme-dark .markdown-preview-view ol > li:nth-child(3)::marker,
-body.theme-light .markdown-preview-view ol > li:nth-child(3)::marker {
-  color: #FBBF24;
-}
-body.theme-dark .markdown-preview-view ol > li:nth-child(4)::marker,
-body.theme-light .markdown-preview-view ol > li:nth-child(4)::marker {
-  color: #34D399;
-}
-body.theme-dark .markdown-preview-view ol > li:nth-child(5)::marker,
-body.theme-light .markdown-preview-view ol > li:nth-child(5)::marker {
-  color: #38BDF8;
-}
-body.theme-dark .markdown-preview-view ol > li:nth-child(6)::marker,
-body.theme-light .markdown-preview-view ol > li:nth-child(6)::marker {
-  color: #818CF8;
-}
-body.theme-dark .markdown-preview-view ol > li:nth-child(7)::marker,
-body.theme-light .markdown-preview-view ol > li:nth-child(7)::marker {
-  color: #A78BFA;
-}
-body.theme-dark .markdown-preview-view ol > li:nth-child(8)::marker,
-body.theme-light .markdown-preview-view ol > li:nth-child(8)::marker {
-  color: #E879F9;
-}
-body.theme-dark .markdown-preview-view ol > li:nth-child(n+9)::marker,
-body.theme-light .markdown-preview-view ol > li:nth-child(n+9)::marker {
-  color: var(--list-marker-color);
 }
 
 /* ---- Bulleted list markers: single accent blue ---- */
