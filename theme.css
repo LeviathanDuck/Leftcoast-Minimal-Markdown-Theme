@@ -315,26 +315,39 @@ body.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-6 {
   color: var(--h6-color);
 }
 
-/* ---- Internal and external links: bullet-blue text on a lifted pill ---- */
-body.theme-dark a.internal-link,
-body.theme-dark a.external-link,
+/* ---- Link color: applies everywhere (Reading view, editor source, rendered) ---- */
+body.theme-dark .internal-link,
+body.theme-dark .external-link,
 body.theme-dark .cm-s-obsidian span.cm-hmd-internal-link,
 body.theme-dark .cm-s-obsidian span.cm-url,
-body.theme-dark .cm-s-obsidian span.cm-link {
+body.theme-dark .cm-s-obsidian span.cm-link,
+body.theme-dark .cm-s-obsidian span.cm-link .cm-underline {
   color: #2EA9DF;
+}
+body.theme-dark .internal-link:hover,
+body.theme-dark .external-link:hover,
+body.theme-dark .cm-s-obsidian span.cm-hmd-internal-link:hover,
+body.theme-dark .cm-s-obsidian span.cm-url:hover,
+body.theme-dark .cm-s-obsidian span.cm-link:hover,
+body.theme-dark .cm-s-obsidian span.cm-link:hover .cm-underline {
+  color: #5BC0EB;
+}
+
+/* ---- Wikilink pill: internal links only (Reading view + Live Preview inactive lines) ---- */
+body.theme-dark .internal-link,
+body.theme-dark .cm-line:not(.cm-active) .cm-hmd-internal-link {
   background-color: #2A2A2E;
-  padding: 0.1em 0.25em;
+  padding: 0.1em 0.4em;
   border-radius: var(--radius-s);
-  text-decoration: none;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
-body.theme-dark a.internal-link:hover,
-body.theme-dark a.external-link:hover,
-body.theme-dark .cm-s-obsidian span.cm-hmd-internal-link:hover,
-body.theme-dark .cm-s-obsidian span.cm-url:hover,
-body.theme-dark .cm-s-obsidian span.cm-link:hover {
-  color: #5BC0EB;
+
+/* ---- Section anchor links: § glyph in Reading view ---- */
+body.theme-dark .markdown-rendered a[href^="#"]:not(.footnote-link):not(.footnote-backref)::after,
+body.theme-dark .markdown-rendered a[data-href^="#"]:not(.footnote-link):not(.footnote-backref)::after {
+  content: " §";
+  color: var(--text-muted);
 }
 
 /* ---- Emphasis: bold and italic in warm amber ---- */
