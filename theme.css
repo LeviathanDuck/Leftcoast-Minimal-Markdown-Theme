@@ -321,7 +321,19 @@ body.theme-dark .external-link,
 body.theme-dark .cm-s-obsidian span.cm-hmd-internal-link,
 body.theme-dark .cm-s-obsidian span.cm-url,
 body.theme-dark .cm-s-obsidian span.cm-link,
-body.theme-dark .cm-s-obsidian span.cm-link .cm-underline {
+body.theme-dark .cm-s-obsidian span.cm-link .cm-underline,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-url,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-link,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-string.cm-url,
+body.theme-light .internal-link,
+body.theme-light .external-link,
+body.theme-light .cm-s-obsidian span.cm-hmd-internal-link,
+body.theme-light .cm-s-obsidian span.cm-url,
+body.theme-light .cm-s-obsidian span.cm-link,
+body.theme-light .cm-s-obsidian span.cm-link .cm-underline,
+body.theme-light .markdown-source-view.mod-cm6 .cm-url,
+body.theme-light .markdown-source-view.mod-cm6 .cm-link,
+body.theme-light .markdown-source-view.mod-cm6 .cm-string.cm-url {
   color: #2EA9DF;
 }
 body.theme-dark .internal-link:hover,
@@ -329,7 +341,19 @@ body.theme-dark .external-link:hover,
 body.theme-dark .cm-s-obsidian span.cm-hmd-internal-link:hover,
 body.theme-dark .cm-s-obsidian span.cm-url:hover,
 body.theme-dark .cm-s-obsidian span.cm-link:hover,
-body.theme-dark .cm-s-obsidian span.cm-link:hover .cm-underline {
+body.theme-dark .cm-s-obsidian span.cm-link:hover .cm-underline,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-url:hover,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-link:hover,
+body.theme-dark .markdown-source-view.mod-cm6 .cm-string.cm-url:hover,
+body.theme-light .internal-link:hover,
+body.theme-light .external-link:hover,
+body.theme-light .cm-s-obsidian span.cm-hmd-internal-link:hover,
+body.theme-light .cm-s-obsidian span.cm-url:hover,
+body.theme-light .cm-s-obsidian span.cm-link:hover,
+body.theme-light .cm-s-obsidian span.cm-link:hover .cm-underline,
+body.theme-light .markdown-source-view.mod-cm6 .cm-url:hover,
+body.theme-light .markdown-source-view.mod-cm6 .cm-link:hover,
+body.theme-light .markdown-source-view.mod-cm6 .cm-string.cm-url:hover {
   color: #5BC0EB;
 }
 
